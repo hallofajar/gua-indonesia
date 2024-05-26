@@ -32,7 +32,13 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-    <link rel="stylesheet" href="assets/geocoding/leaflet-search.src.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/4.0.0/leaflet-search.min.css"
+      integrity="sha512-+o26nsM883F01UlBWY09KgjDn7o1rgGFi1a+lX1zI7m0I2iIh4rckpQSKVnukvn8DKsb0A9hZHoUY7lBkvLdfA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="stylesheet"
       href="assets/control-layer-tree/L.Control.Layers.Tree.css"
@@ -241,6 +247,12 @@
       .leaflet-control-search {
         max-width: 150px;
       }
+
+      div.leaflet-pulsing-icon {
+        background-position: center;
+        background-image: url("assets/img/cave.png") !important;
+        background-size: cover;
+      }
     </style>
   </head>
 
@@ -267,7 +279,12 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet"></script>
     <script src="https://unpkg.com/leaflet.icon.pulse"></script>
-    <script src="assets/geocoding/leaflet-search.src.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/4.0.0/leaflet-search.src.js"
+      integrity="sha512-PDM7dpetuBcPp2fV/ZyCj9BGV8ybPchsrSzQqVZ3WoM8YcxEa2lAj0n1+4MCRzgsEROmVTwQXGw0IrXCCgH+/Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
@@ -405,7 +422,7 @@
       var guaAndPulsingLayer = L.geoJson(null, {
         pointToLayer: function (feature, latlng) {
           var markerOptions = {
-            icon: guaIcon, // Menggunakan ikon gua
+            icon: pulsingIcon, // Menggunakan ikon gua
           };
           if (feature.properties && feature.properties.pulsing) {
             markerOptions.icon = pulsingIcon; // Menggunakan ikon pulsasi jika properti 'pulsing' tersedia
